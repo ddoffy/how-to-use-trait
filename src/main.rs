@@ -12,6 +12,9 @@ use crate::runtime_vs_compile_decision::{
     demonstraate_static_runtime_dispatch, demonstrate_dynamic_runtime_dispatch,
 };
 
+use crate::dependency_inversion::{
+    demonstrate_dependency_inversion, demonstrate_dependency_inversion_with_trait_objects,
+};
 use crate::static_dynamic_dispatch::{demonstrate_dynamic_dispatch, demonstrate_static_dispatch};
 use crate::trait_bounding::demonstrate_find_duplicates;
 use crate::zero_cost_abstraction::{Addition, Mutiplication, perform_operation};
@@ -22,6 +25,7 @@ mod associated_types_constants;
 mod behavior_abstraction;
 mod composition_and_extensions;
 mod default_implementation;
+mod dependency_inversion;
 mod error_handling_architecture;
 mod performance_considerations;
 mod runtime_vs_compile_decision;
@@ -98,6 +102,10 @@ fn main() {
     // Using runtime vs compile decision
     demonstraate_static_runtime_dispatch();
     demonstrate_dynamic_runtime_dispatch();
+
+    // Using dependency inversion
+    demonstrate_dependency_inversion();
+    demonstrate_dependency_inversion_with_trait_objects();
 }
 
 fn process_data<T: DataProcessor>(processor: &T, data: &[u8]) -> Vec<u8> {
