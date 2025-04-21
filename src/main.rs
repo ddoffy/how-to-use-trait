@@ -1,13 +1,17 @@
+use crate::architecture_implementation::demonstrate_architecture_implementation;
 use crate::associated_types_constants::demonstrate_database;
 use crate::behavior_abstraction::DataProcessor;
+use crate::performance_considerations::demonstrate_performance_considerations;
 use crate::static_dynamic_dispatch::{demonstrate_dynamic_dispatch, demonstrate_static_dispatch};
 use crate::trait_bounding::demonstrate_find_duplicates;
 use crate::zero_cost_abstraction::{Addition, Mutiplication, perform_operation};
 
 mod advanced_trait_features;
+mod architecture_implementation;
 mod associated_types_constants;
 mod behavior_abstraction;
 mod default_implementation;
+mod performance_considerations;
 mod static_dynamic_dispatch;
 mod trait_bounding;
 mod zero_cost_abstraction;
@@ -50,6 +54,12 @@ fn main() {
 
     // Using associated types and constants
     demonstrate_database();
+
+    // Using architecture implementation
+    demonstrate_architecture_implementation();
+
+    // Using performance considerations
+    demonstrate_performance_considerations();
 }
 
 fn process_data<T: DataProcessor>(processor: &T, data: &[u8]) -> Vec<u8> {
