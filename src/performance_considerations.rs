@@ -1,4 +1,3 @@
-use serde_json;
 pub trait Parser {
     type Output;
     type Error;
@@ -15,7 +14,7 @@ impl Parser for JsonParser {
     type Output = String;
     type Error = String;
 
-    fn parse(&self, input: &str) -> Result<Self::Output, Self::Error> {
+    fn parse(&self, _input: &str) -> Result<Self::Output, Self::Error> {
         println!("Parsing JSON data");
         Ok("Parsed JSON".to_string())
     }
@@ -29,7 +28,7 @@ impl Parser for XmlParser {
     type Output = String;
     type Error = String;
 
-    fn parse(&self, input: &str) -> Result<Self::Output, Self::Error> {
+    fn parse(&self, _input: &str) -> Result<Self::Output, Self::Error> {
         println!("Parsing XML data");
         Ok("Parsed XML".to_string())
     }
@@ -43,7 +42,7 @@ impl Parser for YamlParser {
     type Output = String;
     type Error = String;
 
-    fn parse(&self, input: &str) -> Result<Self::Output, Self::Error> {
+    fn parse(&self, _input: &str) -> Result<Self::Output, Self::Error> {
         println!("Parsing YAML data");
         Ok("Parsed YAML".to_string())
     }

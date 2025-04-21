@@ -1,6 +1,12 @@
+use crate::advanced_trait_features::{
+    demonstrate_blanket_implementation, demonstrate_marker_traits, demonstrate_streaming_iterator,
+    demonstrate_supertraits,
+};
 use crate::architecture_implementation::demonstrate_architecture_implementation;
 use crate::associated_types_constants::demonstrate_database;
-use crate::behavior_abstraction::DataProcessor;
+use crate::behavior_abstraction::{DataProcessor, demonstrate_behavior_abstraction};
+use crate::composition_and_extensions::demonstrate_composition_and_extensions;
+use crate::error_handling_architecture::demonstrate_error_handling_architecture;
 use crate::performance_considerations::demonstrate_performance_considerations;
 use crate::static_dynamic_dispatch::{demonstrate_dynamic_dispatch, demonstrate_static_dispatch};
 use crate::trait_bounding::demonstrate_find_duplicates;
@@ -10,7 +16,9 @@ mod advanced_trait_features;
 mod architecture_implementation;
 mod associated_types_constants;
 mod behavior_abstraction;
+mod composition_and_extensions;
 mod default_implementation;
+mod error_handling_architecture;
 mod performance_considerations;
 mod static_dynamic_dispatch;
 mod trait_bounding;
@@ -60,6 +68,27 @@ fn main() {
 
     // Using performance considerations
     demonstrate_performance_considerations();
+
+    // Using behavior abstractiion
+    demonstrate_behavior_abstraction();
+
+    // Using super trait
+    demonstrate_supertraits();
+
+    // Using marker traits
+    demonstrate_marker_traits();
+
+    // Using streaming iterator
+    demonstrate_streaming_iterator();
+
+    // Using blanket implementation
+    demonstrate_blanket_implementation();
+
+    // Using composition and extensions
+    demonstrate_composition_and_extensions();
+
+    // Use error handling architecture
+    demonstrate_error_handling_architecture();
 }
 
 fn process_data<T: DataProcessor>(processor: &T, data: &[u8]) -> Vec<u8> {

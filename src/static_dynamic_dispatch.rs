@@ -22,7 +22,7 @@ impl Logger for FileLogger {
 }
 
 // Static dispatch - generic function
-pub fn log_status<T: Logger>(logger: &T, status: &str) {
+fn log_status<T: Logger>(logger: &T, status: &str) {
     logger.log(format!("Status: {}", status).as_str());
 }
 
@@ -37,7 +37,7 @@ pub fn demonstrate_static_dispatch() {
 }
 
 // Dynamic dispatch - trait object
-pub fn log_status_dynamic(logger: &dyn Logger, status: &str) {
+fn log_status_dynamic(logger: &dyn Logger, status: &str) {
     logger.log(format!("Status: {}", status).as_str());
 }
 

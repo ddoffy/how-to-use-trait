@@ -78,7 +78,7 @@ pub fn demonstrate_database() {
 
     let db = PostgresDatabase {};
     let connection_string = "host=localhost;user=postgres;password=secret;dbname=test";
-    let mut conn = db
+    let conn = db
         .connect(connection_string)
         .expect("Failed to connect to database");
     let query = "SELECT * FROM users";

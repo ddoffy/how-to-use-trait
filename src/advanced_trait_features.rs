@@ -30,6 +30,11 @@ struct Circle {
     radius: u32,
 }
 
+struct Square {
+    width: u32,
+    height: u32,
+}
+
 impl Drawable for Circle {
     fn draw(&self) {
         println!("Drawing a circle with radius {}", self.radius);
@@ -41,6 +46,31 @@ impl Drawable for Circle {
     }
 }
 
+impl Drawable for Square {
+    fn draw(&self) {
+        println!(
+            "Drawing a square with width {} and height {}",
+            self.width, self.height
+        );
+    }
+
+    fn dimensions(&self) -> (u32, u32) {
+        (self.width, self.height)
+    }
+}
+
+impl Circle {
+    fn new(radius: u32) -> Circle {
+        Circle { radius }
+    }
+}
+
+impl Square {
+    fn new(width: u32, height: u32) -> Square {
+        Square { width, height }
+    }
+}
+
 pub fn demonstrate_object_safety() {
     let mut canvas = Canvas {
         elements: Vec::new(),
@@ -48,6 +78,12 @@ pub fn demonstrate_object_safety() {
 
     let circle = Circle { radius: 10 };
     canvas.add_element(Box::new(circle));
+
+    let circle_2 = Circle::new(23);
+    canvas.add_element(Box::new(circle_2));
+
+    let square = Square::new(23, 87);
+    canvas.add_element(Box::new(square));
 
     canvas.render();
 }
@@ -187,7 +223,7 @@ impl ThreadPool {
         ThreadPool { max_threads }
     }
 
-    fn spawn<F, T>(&self, f: F, arg: T)
+    fn spawn<F, T>(&self, _f: F, _arg: T)
     where
         F: FnOnce(T) + Send + 'static,
         T: ThreadSafe + Send + 'static,
