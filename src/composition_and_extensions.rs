@@ -117,7 +117,7 @@ impl<A: Authenticator, Z: Authorizer, L: Logger> SecuritySystem<A, Z, L> {
 pub fn demonstrate_composition_and_extensions() {
     let oauth2_authenticator = Oauth2Authenticator {
         client_id: "client_id".to_string(),
-        client_secret: "client_secret".to_string(),
+        client_secret: "[your client secret key]".to_string(),
     };
 
     let role_based_authorizer = RoleBasedAuthorizer {};
@@ -136,4 +136,3 @@ pub fn demonstrate_composition_and_extensions() {
 
     security_system.check_access(credentials, 1, "resource", "action");
 }
-

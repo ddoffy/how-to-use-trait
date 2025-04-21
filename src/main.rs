@@ -8,6 +8,10 @@ use crate::behavior_abstraction::{DataProcessor, demonstrate_behavior_abstractio
 use crate::composition_and_extensions::demonstrate_composition_and_extensions;
 use crate::error_handling_architecture::demonstrate_error_handling_architecture;
 use crate::performance_considerations::demonstrate_performance_considerations;
+use crate::runtime_vs_compile_decision::{
+    demonstraate_static_runtime_dispatch, demonstrate_dynamic_runtime_dispatch,
+};
+
 use crate::static_dynamic_dispatch::{demonstrate_dynamic_dispatch, demonstrate_static_dispatch};
 use crate::trait_bounding::demonstrate_find_duplicates;
 use crate::zero_cost_abstraction::{Addition, Mutiplication, perform_operation};
@@ -20,6 +24,7 @@ mod composition_and_extensions;
 mod default_implementation;
 mod error_handling_architecture;
 mod performance_considerations;
+mod runtime_vs_compile_decision;
 mod static_dynamic_dispatch;
 mod trait_bounding;
 mod zero_cost_abstraction;
@@ -89,6 +94,10 @@ fn main() {
 
     // Use error handling architecture
     demonstrate_error_handling_architecture();
+
+    // Using runtime vs compile decision
+    demonstraate_static_runtime_dispatch();
+    demonstrate_dynamic_runtime_dispatch();
 }
 
 fn process_data<T: DataProcessor>(processor: &T, data: &[u8]) -> Vec<u8> {
